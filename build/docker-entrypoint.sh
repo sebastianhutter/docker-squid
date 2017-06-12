@@ -19,15 +19,6 @@ else
   fi
 fi
 
-# if the config file was mounted read-only - we do not parse the config
-if [ -w "$CONFIG_LOCAL" ]; then
-  # now parse the nginx configuration file with j2
-  echo "Parse the nginx configuration file with j2"
-  mv -f "$CONFIG_LOCAL" "$CONFIG_LOCAL.orig"
-  j2 "$CONFIG_LOCAL.orig" > "$CONFIG_LOCAL"
-  [ $? -ne 0 ] && exit 1
-fi
-
 # run nginx
 echo "Run squid"
-/usr/sbin/nginx -c "$CONFIG_LOCAL"
+/usr/sbin/squid3 -N
