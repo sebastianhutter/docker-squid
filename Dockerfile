@@ -4,7 +4,6 @@ FROM debian:jessie
 RUN apt-get update \
   && DEBIAN_FRONTEND=noninteractive apt-get install -y curl squid3 \
   && mv /etc/squid3/squid.conf /etc/squid3/squid.conf.dist \
-  && ln -sf /dev/stdout /var/log/squid3/access.log \
   && rm -rf /var/lib/apt/lists/*
 
 # add entrypoint script
