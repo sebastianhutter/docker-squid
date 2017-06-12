@@ -21,4 +21,4 @@ fi
 
 # run nginx
 echo "Run squid"
-/usr/sbin/squid3 -N
+/usr/sbin/squid3 -NYCd 1
